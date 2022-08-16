@@ -3,3 +3,6 @@
 
 ICDAR2015数据集的百度网盘地址：
 链接: https://pan.baidu.com/s/1q9SipqPL_kjI0G3TD8me9w  密码: euwq
+
+参考github项目：
+https://github.com/BADBADBADBOY/PytorchOCR
