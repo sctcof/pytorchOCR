@@ -1,0 +1,2 @@
+# pytorchOCR
+基于BADBOY提供出来PytorchOCR项目，针对ICDAR2015数据集进行的文本区域检测和英文文字识别。解决训练和预测过程中几个比较重要的关节问题。如C语言编译、rec_train.py预测中代码错误等。
