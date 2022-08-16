@@ -1,0 +1,1 @@
+loss_total	loss_l1	loss_bce	loss_thresh	piexl_acc	piexl_iou	t_rescall	t_precision	t_hmean	b_rescall	b_precision	b_hmean

@@ -1,0 +1,141 @@
+## 基于pytorch的OCR库
+
+
+这里会有这个项目的代码详解和我的一些ocr经验和心得，我会慢慢更新，有兴趣可以看看，希望可以帮到新接触ocr的童鞋[CSDN博客](https://blog.csdn.net/fxwfxw7037681/category_10419715.html)
+githua项目链接：https://github.com/BADBADBADBOY/PytorchOCR
+***
+最近跟新：
+- 2021.05.19 更新基于DBnet的多语种文本检测。
+- 2021.05.01 更新CRNN 训练，解决了多gpu训练问题，更换成lmdb训练，需要将图片先转成lmdb（在script文件夹中有多进程将图片转成lmdb的代码），做了一些训练优化，模型结构更改（训练时使用名字中带lmdb的yaml文件），实际训练效果如下表。
+- 2021.03.26 更新CRNN 训练效果，代码整理后上传
+- 2021.03.06 更新CRNN backbone resnet 和 mobilev3 以及配置文件
+- 2020.12.22 更新CRNN+CTCLoss+CenterLoss训练
+- 2020.09.18 更新文本检测说明文档
+- 2020.09.12 更新DB,pse,pan,sast,crnn训练测试代码和预训练模型
+
+***
+目前已完成:
+
+- [x] DBnet [论文链接](https://arxiv.org/abs/1911.08947)
+- [x] PSEnet [论文链接](https://arxiv.org/abs/1903.12473)
+- [x] PANnet [论文链接](https://arxiv.org/pdf/1908.05900.pdf)
+- [x] SASTnet [论文链接](https://arxiv.org/abs/1908.05498)
+- [x] CRNN [论文链接](https://arxiv.org/abs/1507.05717)
+***
+接下来计划：
+
+- [x] 模型转onnx及调用测试
+- [x] 模型压缩（剪枝）
+- [ ] 模型压缩（量化）
+- [x] 模型蒸馏
+- [x] tensorrt部署
+- [ ] 训练通用化ocr模型
+- [ ] 结合chinese_lite进行部署
+- [ ] 手机端部署
+***
+### crnn模型效果(实验中)
+使用 MJSynth(MJ) 和 SynthText(ST) 训练，以batchsize=512训练，在以下数据集上测试：
+
+| 模型      |迭代次数|  CUTE80 |   IC03_867 |IC13_1015|IC13_857|IC15_1811|IC15_2077|IIIT5k_3000|SVT|SVTP|mean|
+|-|-|-|-|-|-|-|-|-|-|-|-|
+| resnet34+lstm+ctc |120000|  82.98|  91.92|90.93|91.59|73.10|67.98|90.16|85.16|78.29|83.56|
+| mobilev3_large+lstm+ctc | 210000| 73.61| 92.50|90.34|91.59|74.82|68.89|87.56|83.46|77.20|82.21|
+| mobilev3_small+lstm+ctc | 210000| 66.31| 90.77|88.76|91.13|73.66|69.52|88.80|84.54|72.24|80.64|
+
+
+***
+### 检测模型效果(实验中)
+
+训练只在ICDAR2015文本检测公开数据集上，算法效果如下：
+|模型|骨干网络|precision|recall|Hmean|下载链接|
+|-|-|-|-|-|-|
+|DB|ResNet50_7*7|85.88%|79.10%|82.35%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|DB|ResNet50_3*3|86.51%|80.59%|83.44%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|DB|MobileNetV3|82.89%|75.83%|79.20%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|SAST|ResNet50_7*7|85.72%|78.38%|81.89%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|SAST|ResNet50_3*3|86.67%|76.74%|81.40%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|PSE|ResNet50_7*7|84.10%|80.01%|82.01%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|PSE|ResNet50_3*3|82.56%|78.91%|80.69%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|PAN|ResNet18_7*7|81.80%|77.08%|79.37%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+|PAN|ResNet18_3*3|83.78%|75.15%|79.23%|[下载链接](https://pan.baidu.com/s/1zONYFPsS3szaf5BHeQh5ZA)(code:fxw6)|
+***
+### 模型压缩剪枝效果
+
+这里使用mobilev3作为backbone，在icdar2015上测试结果，未压缩模型初始大小为2.4M.
+
+1. 对backbone进行压缩
+
+|模型|pruned method|ratio|model size(M)|precision|recall|Hmean
+|-|-|-|-|-|-|-|
+|DB|no|0|2.4|84.04%|75.34%|79.46%|																																																						
+|DB|backbone|0.5|1.9|83.74%|73.18%|78.10%|
+|DB|backbone|0.6|1.58|84.46%|69.90%|76.50%|
+
+2. 对整个模型进行压缩
+
+|模型|pruned method|ratio|model size(M)|precision|recall|Hmean|
+|-|-|-|-|-|-|-|
+|DB|no|0|2.4|85.70%|74.77%|79.86%|
+|DB|total|0.6|1.42|82.97%|75.10%|78.84%|
+|DB|total|0.65|1.15|85.14%|72.84%|78.51%|
+***
+### 模型蒸馏
+
+|模型|teacher|student|model size(M)|precision|recall|Hmean|improve(%)|
+|-|-|-|-|-|-|-|-|
+|DB|no|mobilev3|2.4|85.70%|74.77%|79.86%|-|
+|DB|resnet50|mobilev3|2.4|86.37%|77.22%|81.54%|1.68|
+|DB|no|mobilev3|1.42|82.97%|75.10%|78.84%|-|
+|DB|resnet50|mobilev3|1.42|85.88%|76.16%|80.73%|1.89|
+|DB|no|mobilev3|1.15|85.14%|72.84%|78.51%|-|
+|DB|resnet50|mobilev3|1.15|85.60%|74.72%|79.79%|1.28|
+***
+
+
+### 文档教程
+- [文本检测](./doc/md/文本检测训练文档.md)
+- [文本识别](./doc/md/文本识别训练文档.md)
+- [pytorch转onnx](./doc/md/pytorch_to_onnx.md)
+- [onnx转tensorrt](./doc/md/onnx_to_tensorrt.md)
+- [模型剪枝](./doc/md/模型剪枝.md)
+- [模型蒸馏](./doc/md/模型蒸馏.md)
+
+
+
+
+***
+
+### 文本检测效果
+<img src="./doc/show/ocr1.jpg" width=600 height=600 />     
+<img src="./doc/show/ocr2.jpg" width=600 height=600 />
+
+***
+
+### Dbnet多语种文本检测效果
+
+#### 生成数据集：
+<img src="./doc/show/2.jpg" width=600 height=600 />
+
+#### 公开数据集：
+<img src="./doc/show/1.jpg" width=600 height=600 />     
+<img src="./doc/show/3.jpg" width=500 height=600 />
+
+
+***
+
+### 有问题及交流加微信
+
+微信号：-fxwispig-
+***
+
+
+### 参考
+
+- https://github.com/PaddlePaddle/PaddleOCR
+- https://github.com/whai362/PSENet
+- https://github.com/whai362/pan_pp.pytorch
+- https://github.com/WenmuZhou/PAN.pytorch
+- https://github.com/xiaolai-sqlai/mobilenetv3
+- https://github.com/BADBADBADBOY/DBnet-lite.pytorch
+- https://github.com/BADBADBADBOY/Psenet_v2
+- https://github.com/BADBADBADBOY/pse-lite.pytorch

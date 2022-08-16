@@ -1,0 +1,378 @@
+2022-08-14 23:02:34,012 - info - 32 - INFO - RecModel(
+  (backbone): MobileNetV3(
+    (conv1): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(1, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (blocks): Sequential(
+      (0): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(16, 4, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(4, 16, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 72, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(72, 72, kernel_size=(3, 3), stride=(2, 1), padding=(1, 1), groups=72)
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(72, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (2): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(24, 88, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=88)
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(88, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (3): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 96, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=96)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(96, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (4): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (5): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (6): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 120, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120)
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(120, 30, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(30, 120, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(120, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (7): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 144, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(144, 144, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=144)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(36, 144, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(144, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (8): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(288, 288, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=288)
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(288, 72, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(72, 288, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(288, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (9): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (10): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (conv2): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+      (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (head): CRNN_Head(
+    (lstm_1): BLSTM(
+      (rnn): LSTM(576, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=48, bias=True)
+    )
+    (lstm_2): BLSTM(
+      (rnn): LSTM(48, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=88, bias=True)
+    )
+  )
+)
+2022-08-14 23:02:34,016 - info - 32 - INFO - Resuming from checkpoint.
+2022-08-14 23:02:35,295 - info - 32 - INFO - (91/100/0/15) | ctc_loss:16.9802 | lr:0.00100000
+2022-08-14 23:02:39,923 - info - 32 - INFO - (91/100/10/15) | ctc_loss:14.8852 | lr:0.00100000
+2022-08-14 23:02:44,205 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:02:44,206 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:02:44,206 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:02:44,206 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:02:44,206 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:02:44,206 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:44,207 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:44,207 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:44,207 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:02:44,207 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:02:44,207 - info - 32 - INFO - val loss: 185.006561, val accuray: 0.000000
+2022-08-14 23:02:44,210 - info - 32 - INFO - best_acc:0
+2022-08-14 23:02:44,969 - info - 32 - INFO - (92/100/0/15) | ctc_loss:16.1021 | lr:0.00100000
+2022-08-14 23:02:49,373 - info - 32 - INFO - (92/100/10/15) | ctc_loss:15.0927 | lr:0.00100000
+2022-08-14 23:02:53,940 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:02:53,941 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:02:53,941 - info - 32 - INFO - val loss: 188.881683, val accuray: 0.000000
+2022-08-14 23:02:53,945 - info - 32 - INFO - best_acc:0
+2022-08-14 23:02:54,842 - info - 32 - INFO - (93/100/0/15) | ctc_loss:13.5566 | lr:0.00100000
+2022-08-14 23:03:00,975 - info - 32 - INFO - (93/100/10/15) | ctc_loss:14.9934 | lr:0.00100000
+2022-08-14 23:03:07,819 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:07,820 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:07,821 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:03:07,821 - info - 32 - INFO - val loss: 186.048157, val accuray: 0.000000
+2022-08-14 23:03:07,824 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:08,995 - info - 32 - INFO - (94/100/0/15) | ctc_loss:13.8767 | lr:0.00100000
+2022-08-14 23:03:15,087 - info - 32 - INFO - (94/100/10/15) | ctc_loss:15.3166 | lr:0.00100000
+2022-08-14 23:03:19,351 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:03:19,352 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:03:19,352 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:19,352 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:19,352 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:03:19,352 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:19,353 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:19,353 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:19,353 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:19,353 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:03:19,353 - info - 32 - INFO - val loss: 183.684387, val accuray: 0.000000
+2022-08-14 23:03:19,356 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:20,186 - info - 32 - INFO - (95/100/0/15) | ctc_loss:12.6926 | lr:0.00100000
+2022-08-14 23:03:24,625 - info - 32 - INFO - (95/100/10/15) | ctc_loss:14.2679 | lr:0.00100000
+2022-08-14 23:03:28,785 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:28,786 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:28,787 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:28,787 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:03:28,787 - info - 32 - INFO - val loss: 185.984070, val accuray: 0.000000
+2022-08-14 23:03:28,790 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:29,554 - info - 32 - INFO - (96/100/0/15) | ctc_loss:14.6842 | lr:0.00100000
+2022-08-14 23:03:33,897 - info - 32 - INFO - (96/100/10/15) | ctc_loss:14.7870 | lr:0.00100000
+2022-08-14 23:03:38,387 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:38,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:03:38,388 - info - 32 - INFO - val loss: 182.175018, val accuray: 0.000000
+2022-08-14 23:03:38,392 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:39,092 - info - 32 - INFO - (97/100/0/15) | ctc_loss:12.1234 | lr:0.00100000
+2022-08-14 23:03:43,373 - info - 32 - INFO - (97/100/10/15) | ctc_loss:14.6694 | lr:0.00100000
+2022-08-14 23:03:47,704 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:47,705 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:47,706 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:47,706 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:47,706 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:03:47,706 - info - 32 - INFO - val loss: 185.191345, val accuray: 0.000000
+2022-08-14 23:03:47,709 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:48,470 - info - 32 - INFO - (98/100/0/15) | ctc_loss:16.4029 | lr:0.00100000
+2022-08-14 23:03:52,801 - info - 32 - INFO - (98/100/10/15) | ctc_loss:14.9830 | lr:0.00100000
+2022-08-14 23:03:57,125 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:03:57,126 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:03:57,126 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:03:57,126 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:03:57,126 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:03:57,126 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:57,127 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:57,127 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:03:57,127 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:03:57,127 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:03:57,127 - info - 32 - INFO - val loss: 185.480423, val accuray: 0.000000
+2022-08-14 23:03:57,130 - info - 32 - INFO - best_acc:0
+2022-08-14 23:03:57,910 - info - 32 - INFO - (99/100/0/15) | ctc_loss:16.7068 | lr:0.00100000
+2022-08-14 23:04:02,365 - info - 32 - INFO - (99/100/10/15) | ctc_loss:14.6799 | lr:0.00100000
+2022-08-14 23:04:06,766 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:04:06,767 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:04:06,767 - info - 32 - INFO - val loss: 185.285614, val accuray: 0.000000
+2022-08-14 23:04:06,771 - info - 32 - INFO - best_acc:0

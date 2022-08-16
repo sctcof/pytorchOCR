@@ -1,0 +1,1778 @@
+2022-08-14 23:06:04,151 - info - 32 - INFO - RecModel(
+  (backbone): MobileNetV3(
+    (conv1): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(1, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (blocks): Sequential(
+      (0): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(16, 4, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(4, 16, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 72, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(72, 72, kernel_size=(3, 3), stride=(2, 1), padding=(1, 1), groups=72)
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(72, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (2): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(24, 88, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=88)
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(88, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (3): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 96, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=96)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(96, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (4): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (5): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (6): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 120, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120)
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(120, 30, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(30, 120, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(120, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (7): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 144, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(144, 144, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=144)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(36, 144, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(144, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (8): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(288, 288, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=288)
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(288, 72, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(72, 288, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(288, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (9): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (10): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (conv2): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+      (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (head): CRNN_Head(
+    (lstm_1): BLSTM(
+      (rnn): LSTM(576, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=48, bias=True)
+    )
+    (lstm_2): BLSTM(
+      (rnn): LSTM(48, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=88, bias=True)
+    )
+  )
+)
+2022-08-14 23:06:04,154 - info - 32 - INFO - Resuming from checkpoint.
+2022-08-14 23:06:05,149 - info - 32 - INFO - (91/200/0/15) | ctc_loss:16.9802 | lr:0.00100000
+2022-08-14 23:06:09,648 - info - 32 - INFO - (91/200/10/15) | ctc_loss:14.8852 | lr:0.00100000
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:06:13,926 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:06:13,927 - info - 32 - INFO - val loss: 185.006561, val accuray: 0.000000
+2022-08-14 23:06:13,930 - info - 32 - INFO - best_acc:0
+2022-08-14 23:06:14,671 - info - 32 - INFO - (92/200/0/15) | ctc_loss:16.1021 | lr:0.00100000
+2022-08-14 23:06:19,806 - info - 32 - INFO - (92/200/10/15) | ctc_loss:15.0927 | lr:0.00100000
+2022-08-14 23:06:24,516 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:06:24,517 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:06:24,517 - info - 32 - INFO - val loss: 188.881683, val accuray: 0.000000
+2022-08-14 23:06:24,520 - info - 32 - INFO - best_acc:0
+2022-08-14 23:06:25,248 - info - 32 - INFO - (93/200/0/15) | ctc_loss:13.5566 | lr:0.00100000
+2022-08-14 23:06:29,860 - info - 32 - INFO - (93/200/10/15) | ctc_loss:14.9934 | lr:0.00100000
+2022-08-14 23:06:34,716 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:06:34,717 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:06:34,717 - info - 32 - INFO - val loss: 186.048157, val accuray: 0.000000
+2022-08-14 23:06:34,720 - info - 32 - INFO - best_acc:0
+2022-08-14 23:06:35,453 - info - 32 - INFO - (94/200/0/15) | ctc_loss:13.8767 | lr:0.00100000
+2022-08-14 23:06:39,977 - info - 32 - INFO - (94/200/10/15) | ctc_loss:15.3166 | lr:0.00100000
+2022-08-14 23:06:44,359 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:06:44,360 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:06:44,360 - info - 32 - INFO - val loss: 183.684387, val accuray: 0.000000
+2022-08-14 23:06:44,363 - info - 32 - INFO - best_acc:0
+2022-08-14 23:06:45,180 - info - 32 - INFO - (95/200/0/15) | ctc_loss:12.6926 | lr:0.00100000
+2022-08-14 23:06:49,703 - info - 32 - INFO - (95/200/10/15) | ctc_loss:14.2679 | lr:0.00100000
+2022-08-14 23:06:53,899 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:06:53,899 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:06:53,899 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:06:53,899 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:06:53,899 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:06:53,900 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:53,900 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:53,900 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:06:53,900 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:06:53,900 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:06:53,900 - info - 32 - INFO - val loss: 185.984070, val accuray: 0.000000
+2022-08-14 23:06:53,903 - info - 32 - INFO - best_acc:0
+2022-08-14 23:06:54,689 - info - 32 - INFO - (96/200/0/15) | ctc_loss:14.6842 | lr:0.00100000
+2022-08-14 23:06:59,191 - info - 32 - INFO - (96/200/10/15) | ctc_loss:14.7870 | lr:0.00100000
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:03,865 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:03,866 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:03,866 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:03,866 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:07:03,866 - info - 32 - INFO - val loss: 182.175018, val accuray: 0.000000
+2022-08-14 23:07:03,869 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:04,694 - info - 32 - INFO - (97/200/0/15) | ctc_loss:12.1234 | lr:0.00100000
+2022-08-14 23:07:11,016 - info - 32 - INFO - (97/200/10/15) | ctc_loss:14.6694 | lr:0.00100000
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:15,970 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:15,971 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:15,971 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:07:15,971 - info - 32 - INFO - val loss: 185.191345, val accuray: 0.000000
+2022-08-14 23:07:15,974 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:16,940 - info - 32 - INFO - (98/200/0/15) | ctc_loss:16.4029 | lr:0.00100000
+2022-08-14 23:07:22,665 - info - 32 - INFO - (98/200/10/15) | ctc_loss:14.9830 | lr:0.00100000
+2022-08-14 23:07:27,038 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:07:27,038 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:27,038 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:27,038 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:27,038 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:07:27,039 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:27,039 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:27,039 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:27,039 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:27,039 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:07:27,039 - info - 32 - INFO - val loss: 185.480423, val accuray: 0.000000
+2022-08-14 23:07:27,042 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:27,844 - info - 32 - INFO - (99/200/0/15) | ctc_loss:16.7068 | lr:0.00100000
+2022-08-14 23:07:32,328 - info - 32 - INFO - (99/200/10/15) | ctc_loss:14.6799 | lr:0.00100000
+2022-08-14 23:07:36,827 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:36,828 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:07:36,828 - info - 32 - INFO - val loss: 185.285614, val accuray: 0.000000
+2022-08-14 23:07:36,832 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:37,591 - info - 32 - INFO - (100/200/0/15) | ctc_loss:11.4881 | lr:0.00100000
+2022-08-14 23:07:42,062 - info - 32 - INFO - (100/200/10/15) | ctc_loss:14.6432 | lr:0.00100000
+2022-08-14 23:07:46,530 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:46,531 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:46,532 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:46,532 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:07:46,532 - info - 32 - INFO - val loss: 185.097809, val accuray: 0.000000
+2022-08-14 23:07:46,534 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:47,359 - info - 32 - INFO - (101/200/0/15) | ctc_loss:17.5176 | lr:0.00100000
+2022-08-14 23:07:51,867 - info - 32 - INFO - (101/200/10/15) | ctc_loss:14.3671 | lr:0.00100000
+2022-08-14 23:07:56,176 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:07:56,177 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:07:56,177 - info - 32 - INFO - val loss: 184.761078, val accuray: 0.000000
+2022-08-14 23:07:56,180 - info - 32 - INFO - best_acc:0
+2022-08-14 23:07:56,924 - info - 32 - INFO - (102/200/0/15) | ctc_loss:14.9508 | lr:0.00100000
+2022-08-14 23:08:01,434 - info - 32 - INFO - (102/200/10/15) | ctc_loss:14.3900 | lr:0.00100000
+2022-08-14 23:08:05,871 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 20029               
+2022-08-14 23:08:05,872 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:08:05,872 - info - 32 - INFO - val loss: 184.252975, val accuray: 0.000000
+2022-08-14 23:08:05,875 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:06,688 - info - 32 - INFO - (103/200/0/15) | ctc_loss:14.0274 | lr:0.00100000
+2022-08-14 23:08:11,153 - info - 32 - INFO - (103/200/10/15) | ctc_loss:13.9284 | lr:0.00100000
+2022-08-14 23:08:15,678 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:08:15,678 - info - 32 - INFO - recog example s-----------------------g => sg                  , gt: yourself            
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:15,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:08:15,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:08:15,680 - info - 32 - INFO - val loss: 185.826813, val accuray: 0.000000
+2022-08-14 23:08:15,683 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:16,423 - info - 32 - INFO - (104/200/0/15) | ctc_loss:15.4474 | lr:0.00100000
+2022-08-14 23:08:20,960 - info - 32 - INFO - (104/200/10/15) | ctc_loss:14.2391 | lr:0.00100000
+2022-08-14 23:08:25,497 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:08:25,498 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:08:25,498 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:08:25,499 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:08:25,499 - info - 32 - INFO - val loss: 189.687729, val accuray: 0.000000
+2022-08-14 23:08:25,502 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:26,311 - info - 32 - INFO - (105/200/0/15) | ctc_loss:11.4257 | lr:0.00100000
+2022-08-14 23:08:32,143 - info - 32 - INFO - (105/200/10/15) | ctc_loss:14.1012 | lr:0.00100000
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example s---------------------ngg => sng                 , gt: yourself            
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:08:36,861 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:08:36,862 - info - 32 - INFO - val loss: 187.104095, val accuray: 0.000000
+2022-08-14 23:08:36,865 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:37,523 - info - 32 - INFO - (106/200/0/15) | ctc_loss:12.9141 | lr:0.00100000
+2022-08-14 23:08:41,874 - info - 32 - INFO - (106/200/10/15) | ctc_loss:14.5215 | lr:0.00100000
+2022-08-14 23:08:46,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:08:46,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:08:46,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 20029               
+2022-08-14 23:08:46,297 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:08:46,297 - info - 32 - INFO - val loss: 188.656952, val accuray: 0.000000
+2022-08-14 23:08:46,300 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:46,957 - info - 32 - INFO - (107/200/0/15) | ctc_loss:12.4801 | lr:0.00100000
+2022-08-14 23:08:51,255 - info - 32 - INFO - (107/200/10/15) | ctc_loss:13.9420 | lr:0.00100000
+2022-08-14 23:08:55,658 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:08:55,659 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:08:55,659 - info - 32 - INFO - val loss: 189.005600, val accuray: 0.000000
+2022-08-14 23:08:55,662 - info - 32 - INFO - best_acc:0
+2022-08-14 23:08:56,399 - info - 32 - INFO - (108/200/0/15) | ctc_loss:13.4930 | lr:0.00100000
+2022-08-14 23:09:00,831 - info - 32 - INFO - (108/200/10/15) | ctc_loss:14.6073 | lr:0.00100000
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:04,918 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:04,919 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:09:04,919 - info - 32 - INFO - val loss: 192.249725, val accuray: 0.000000
+2022-08-14 23:09:04,922 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:05,613 - info - 32 - INFO - (109/200/0/15) | ctc_loss:14.7476 | lr:0.00100000
+2022-08-14 23:09:09,992 - info - 32 - INFO - (109/200/10/15) | ctc_loss:14.4816 | lr:0.00100000
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:14,295 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:14,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:14,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:14,296 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:09:14,296 - info - 32 - INFO - val loss: 190.323456, val accuray: 0.000000
+2022-08-14 23:09:14,299 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:15,004 - info - 32 - INFO - (110/200/0/15) | ctc_loss:14.0888 | lr:0.00100000
+2022-08-14 23:09:19,443 - info - 32 - INFO - (110/200/10/15) | ctc_loss:14.0665 | lr:0.00100000
+2022-08-14 23:09:23,766 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:23,766 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:09:23,766 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:23,766 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:23,767 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:09:23,767 - info - 32 - INFO - val loss: 188.840942, val accuray: 0.000000
+2022-08-14 23:09:23,770 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:24,456 - info - 32 - INFO - (111/200/0/15) | ctc_loss:14.1947 | lr:0.00100000
+2022-08-14 23:09:28,999 - info - 32 - INFO - (111/200/10/15) | ctc_loss:14.3832 | lr:0.00100000
+2022-08-14 23:09:33,069 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:33,069 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:09:33,069 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:33,069 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:33,070 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:09:33,070 - info - 32 - INFO - val loss: 188.252884, val accuray: 0.000000
+2022-08-14 23:09:33,073 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:33,841 - info - 32 - INFO - (112/200/0/15) | ctc_loss:14.7081 | lr:0.00100000
+2022-08-14 23:09:38,179 - info - 32 - INFO - (112/200/10/15) | ctc_loss:14.9445 | lr:0.00100000
+2022-08-14 23:09:42,641 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:42,641 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:42,642 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:09:42,642 - info - 32 - INFO - val loss: 189.030441, val accuray: 0.000000
+2022-08-14 23:09:42,645 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:43,299 - info - 32 - INFO - (113/200/0/15) | ctc_loss:14.7040 | lr:0.00100000
+2022-08-14 23:09:47,746 - info - 32 - INFO - (113/200/10/15) | ctc_loss:15.1510 | lr:0.00100000
+2022-08-14 23:09:52,950 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:09:52,950 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:09:52,950 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:09:52,950 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:09:52,951 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:09:52,951 - info - 32 - INFO - val loss: 189.106522, val accuray: 0.000000
+2022-08-14 23:09:52,954 - info - 32 - INFO - best_acc:0
+2022-08-14 23:09:53,858 - info - 32 - INFO - (114/200/0/15) | ctc_loss:11.7886 | lr:0.00100000
+2022-08-14 23:10:00,855 - info - 32 - INFO - (114/200/10/15) | ctc_loss:14.7700 | lr:0.00100000
+2022-08-14 23:10:05,805 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:10:05,806 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:10:05,806 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:05,806 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:05,806 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:10:05,806 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:05,807 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:05,807 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:05,807 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:10:05,807 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:10:05,807 - info - 32 - INFO - val loss: 184.726486, val accuray: 0.000000
+2022-08-14 23:10:05,810 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:06,567 - info - 32 - INFO - (115/200/0/15) | ctc_loss:12.4145 | lr:0.00100000
+2022-08-14 23:10:11,300 - info - 32 - INFO - (115/200/10/15) | ctc_loss:14.0063 | lr:0.00100000
+2022-08-14 23:10:15,882 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:10:15,882 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:10:15,882 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:15,882 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:15,882 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:10:15,883 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:15,883 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:15,883 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:15,883 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 20029               
+2022-08-14 23:10:15,883 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:10:15,883 - info - 32 - INFO - val loss: 186.550003, val accuray: 0.000000
+2022-08-14 23:10:15,887 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:16,640 - info - 32 - INFO - (116/200/0/15) | ctc_loss:14.1652 | lr:0.00100000
+2022-08-14 23:10:21,189 - info - 32 - INFO - (116/200/10/15) | ctc_loss:14.5139 | lr:0.00100000
+2022-08-14 23:10:25,869 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:10:25,870 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:10:25,870 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:25,870 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:25,870 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:10:25,870 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:25,871 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:25,871 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:25,871 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:10:25,871 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:10:25,871 - info - 32 - INFO - val loss: 187.029495, val accuray: 0.000000
+2022-08-14 23:10:25,875 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:26,705 - info - 32 - INFO - (117/200/0/15) | ctc_loss:13.1226 | lr:0.00100000
+2022-08-14 23:10:31,543 - info - 32 - INFO - (117/200/10/15) | ctc_loss:14.4069 | lr:0.00100000
+2022-08-14 23:10:36,463 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:36,464 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:10:36,465 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:10:36,465 - info - 32 - INFO - val loss: 186.651520, val accuray: 0.000000
+2022-08-14 23:10:36,468 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:37,233 - info - 32 - INFO - (118/200/0/15) | ctc_loss:12.1374 | lr:0.00100000
+2022-08-14 23:10:41,843 - info - 32 - INFO - (118/200/10/15) | ctc_loss:13.5960 | lr:0.00100000
+2022-08-14 23:10:46,469 - info - 32 - INFO - recog example ------------------------g => g                   , gt: joint               
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example s----------------------gg => sg                  , gt: yourself            
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example f------------------------ => f                   , gt: 727                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:46,470 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:10:46,471 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:10:46,471 - info - 32 - INFO - val loss: 190.757172, val accuray: 0.000000
+2022-08-14 23:10:46,474 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:47,251 - info - 32 - INFO - (119/200/0/15) | ctc_loss:12.4075 | lr:0.00100000
+2022-08-14 23:10:51,958 - info - 32 - INFO - (119/200/10/15) | ctc_loss:14.4411 | lr:0.00100000
+2022-08-14 23:10:56,373 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:10:56,374 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:10:56,374 - info - 32 - INFO - val loss: 189.674896, val accuray: 0.000000
+2022-08-14 23:10:56,377 - info - 32 - INFO - best_acc:0
+2022-08-14 23:10:57,165 - info - 32 - INFO - (120/200/0/15) | ctc_loss:13.9163 | lr:0.00100000
+2022-08-14 23:11:01,957 - info - 32 - INFO - (120/200/10/15) | ctc_loss:14.1623 | lr:0.00100000
+2022-08-14 23:11:06,388 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:06,389 - info - 32 - INFO - recog example s------------------------ => s                   , gt: free                
+2022-08-14 23:11:06,389 - info - 32 - INFO - val loss: 189.936874, val accuray: 0.000000
+2022-08-14 23:11:06,392 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:07,192 - info - 32 - INFO - (121/200/0/15) | ctc_loss:11.8123 | lr:0.00100000
+2022-08-14 23:11:12,068 - info - 32 - INFO - (121/200/10/15) | ctc_loss:13.5790 | lr:0.00100000
+2022-08-14 23:11:16,774 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:16,774 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:11:16,774 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:16,774 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:16,774 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:16,775 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:16,775 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:16,775 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:16,775 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:16,775 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:11:16,775 - info - 32 - INFO - val loss: 191.952698, val accuray: 0.000000
+2022-08-14 23:11:16,778 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:17,634 - info - 32 - INFO - (122/200/0/15) | ctc_loss:14.2188 | lr:0.00100000
+2022-08-14 23:11:22,403 - info - 32 - INFO - (122/200/10/15) | ctc_loss:14.0824 | lr:0.00100000
+2022-08-14 23:11:26,967 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:26,968 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:11:26,968 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:26,969 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:11:26,969 - info - 32 - INFO - val loss: 190.875076, val accuray: 0.000000
+2022-08-14 23:11:26,972 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:27,825 - info - 32 - INFO - (123/200/0/15) | ctc_loss:13.7058 | lr:0.00100000
+2022-08-14 23:11:32,608 - info - 32 - INFO - (123/200/10/15) | ctc_loss:13.6202 | lr:0.00100000
+2022-08-14 23:11:37,480 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:37,481 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:37,482 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:37,482 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:11:37,482 - info - 32 - INFO - val loss: 189.541626, val accuray: 0.000000
+2022-08-14 23:11:37,485 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:38,279 - info - 32 - INFO - (124/200/0/15) | ctc_loss:11.5213 | lr:0.00100000
+2022-08-14 23:11:43,080 - info - 32 - INFO - (124/200/10/15) | ctc_loss:13.8074 | lr:0.00100000
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:47,558 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:47,559 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:47,559 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:47,559 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:11:47,559 - info - 32 - INFO - val loss: 190.571487, val accuray: 0.000000
+2022-08-14 23:11:47,562 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:48,357 - info - 32 - INFO - (125/200/0/15) | ctc_loss:12.2452 | lr:0.00100000
+2022-08-14 23:11:53,110 - info - 32 - INFO - (125/200/10/15) | ctc_loss:13.6783 | lr:0.00100000
+2022-08-14 23:11:58,002 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:11:58,002 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:11:58,002 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:11:58,002 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:11:58,003 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:11:58,003 - info - 32 - INFO - val loss: 191.375885, val accuray: 0.000000
+2022-08-14 23:11:58,006 - info - 32 - INFO - best_acc:0
+2022-08-14 23:11:58,786 - info - 32 - INFO - (126/200/0/15) | ctc_loss:14.0016 | lr:0.00100000
+2022-08-14 23:12:03,672 - info - 32 - INFO - (126/200/10/15) | ctc_loss:13.2749 | lr:0.00100000
+2022-08-14 23:12:08,353 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:12:08,354 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:12:08,354 - info - 32 - INFO - val loss: 190.935287, val accuray: 0.000000
+2022-08-14 23:12:08,357 - info - 32 - INFO - best_acc:0
+2022-08-14 23:12:09,142 - info - 32 - INFO - (127/200/0/15) | ctc_loss:13.0140 | lr:0.00100000
+2022-08-14 23:12:13,825 - info - 32 - INFO - (127/200/10/15) | ctc_loss:13.0654 | lr:0.00100000
+2022-08-14 23:12:18,687 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:12:18,688 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:12:18,688 - info - 32 - INFO - val loss: 190.252197, val accuray: 0.000000
+2022-08-14 23:12:18,691 - info - 32 - INFO - best_acc:0
+2022-08-14 23:12:19,530 - info - 32 - INFO - (128/200/0/15) | ctc_loss:11.3042 | lr:0.00100000
+2022-08-14 23:12:24,274 - info - 32 - INFO - (128/200/10/15) | ctc_loss:13.8271 | lr:0.00100000
+2022-08-14 23:12:29,282 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:29,283 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:29,284 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:29,284 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:12:29,284 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:12:29,284 - info - 32 - INFO - val loss: 191.557159, val accuray: 0.000000
+2022-08-14 23:12:29,287 - info - 32 - INFO - best_acc:0
+2022-08-14 23:12:30,136 - info - 32 - INFO - (129/200/0/15) | ctc_loss:11.9344 | lr:0.00100000
+2022-08-14 23:12:34,951 - info - 32 - INFO - (129/200/10/15) | ctc_loss:14.0551 | lr:0.00100000
+2022-08-14 23:12:39,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:12:39,680 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:12:39,680 - info - 32 - INFO - val loss: 193.226608, val accuray: 0.000000
+2022-08-14 23:12:39,684 - info - 32 - INFO - best_acc:0
+2022-08-14 23:12:40,592 - info - 32 - INFO - (130/200/0/15) | ctc_loss:14.4293 | lr:0.00100000
+2022-08-14 23:12:45,406 - info - 32 - INFO - (130/200/10/15) | ctc_loss:13.2119 | lr:0.00100000
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:12:50,215 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:50,216 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:50,216 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:12:50,216 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 20029               
+2022-08-14 23:12:50,216 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:12:50,216 - info - 32 - INFO - val loss: 193.197433, val accuray: 0.000000
+2022-08-14 23:12:50,219 - info - 32 - INFO - best_acc:0
+2022-08-14 23:12:50,989 - info - 32 - INFO - (131/200/0/15) | ctc_loss:13.9688 | lr:0.00100000
+2022-08-14 23:12:55,911 - info - 32 - INFO - (131/200/10/15) | ctc_loss:13.2787 | lr:0.00100000
+2022-08-14 23:13:00,963 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:00,963 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:13:00,963 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:00,963 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 197                 
+2022-08-14 23:13:00,963 - info - 32 - INFO - recog example f------------------------ => f                   , gt: 727                 
+2022-08-14 23:13:00,964 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:00,964 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:00,964 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:00,964 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:13:00,964 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:13:00,964 - info - 32 - INFO - val loss: 189.563187, val accuray: 0.000000
+2022-08-14 23:13:00,968 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:01,692 - info - 32 - INFO - (132/200/0/15) | ctc_loss:10.7161 | lr:0.00100000
+2022-08-14 23:13:06,640 - info - 32 - INFO - (132/200/10/15) | ctc_loss:13.4550 | lr:0.00100000
+2022-08-14 23:13:11,421 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:11,421 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:13:11,422 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:13:11,422 - info - 32 - INFO - val loss: 188.497360, val accuray: 0.000000
+2022-08-14 23:13:11,425 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:12,279 - info - 32 - INFO - (133/200/0/15) | ctc_loss:14.5210 | lr:0.00100000
+2022-08-14 23:13:17,107 - info - 32 - INFO - (133/200/10/15) | ctc_loss:13.0690 | lr:0.00100000
+2022-08-14 23:13:21,700 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:21,700 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:13:21,700 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:21,700 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:13:21,700 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:13:21,701 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:21,701 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:21,701 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:21,701 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:13:21,701 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:13:21,701 - info - 32 - INFO - val loss: 190.314987, val accuray: 0.000000
+2022-08-14 23:13:21,704 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:22,455 - info - 32 - INFO - (134/200/0/15) | ctc_loss:13.8608 | lr:0.00100000
+2022-08-14 23:13:27,429 - info - 32 - INFO - (134/200/10/15) | ctc_loss:12.8933 | lr:0.00100000
+2022-08-14 23:13:32,684 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:13:32,685 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:13:32,686 - info - 32 - INFO - val loss: 193.082489, val accuray: 0.000000
+2022-08-14 23:13:32,689 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:33,570 - info - 32 - INFO - (135/200/0/15) | ctc_loss:12.3616 | lr:0.00100000
+2022-08-14 23:13:38,506 - info - 32 - INFO - (135/200/10/15) | ctc_loss:12.5591 | lr:0.00100000
+2022-08-14 23:13:43,265 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:43,265 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:13:43,265 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:43,265 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:13:43,265 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 727                 
+2022-08-14 23:13:43,266 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:43,266 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:43,266 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:43,266 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:13:43,266 - info - 32 - INFO - recog example ff----------------------- => f                   , gt: free                
+2022-08-14 23:13:43,266 - info - 32 - INFO - val loss: 189.173462, val accuray: 0.000000
+2022-08-14 23:13:43,269 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:44,158 - info - 32 - INFO - (136/200/0/15) | ctc_loss:11.7455 | lr:0.00100000
+2022-08-14 23:13:48,991 - info - 32 - INFO - (136/200/10/15) | ctc_loss:13.0941 | lr:0.00100000
+2022-08-14 23:13:54,022 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:13:54,023 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:13:54,023 - info - 32 - INFO - val loss: 191.338348, val accuray: 0.000000
+2022-08-14 23:13:54,026 - info - 32 - INFO - best_acc:0
+2022-08-14 23:13:54,895 - info - 32 - INFO - (137/200/0/15) | ctc_loss:13.4731 | lr:0.00100000
+2022-08-14 23:13:59,953 - info - 32 - INFO - (137/200/10/15) | ctc_loss:12.5687 | lr:0.00100000
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 727                 
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:04,823 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:04,824 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:04,824 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:14:04,824 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:14:04,824 - info - 32 - INFO - val loss: 193.843079, val accuray: 0.000000
+2022-08-14 23:14:04,827 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:05,617 - info - 32 - INFO - (138/200/0/15) | ctc_loss:11.9287 | lr:0.00100000
+2022-08-14 23:14:10,641 - info - 32 - INFO - (138/200/10/15) | ctc_loss:13.3536 | lr:0.00100000
+2022-08-14 23:14:15,323 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:14:15,324 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:14:15,324 - info - 32 - INFO - val loss: 191.872086, val accuray: 0.000000
+2022-08-14 23:14:15,327 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:16,145 - info - 32 - INFO - (139/200/0/15) | ctc_loss:10.3933 | lr:0.00100000
+2022-08-14 23:14:21,293 - info - 32 - INFO - (139/200/10/15) | ctc_loss:12.1226 | lr:0.00100000
+2022-08-14 23:14:26,434 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:14:26,435 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:14:26,435 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:14:26,435 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:14:26,435 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:14:26,435 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:26,436 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:26,436 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:26,436 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:14:26,436 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:14:26,436 - info - 32 - INFO - val loss: 192.687836, val accuray: 0.000000
+2022-08-14 23:14:26,439 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:27,341 - info - 32 - INFO - (140/200/0/15) | ctc_loss:10.6409 | lr:0.00100000
+2022-08-14 23:14:32,423 - info - 32 - INFO - (140/200/10/15) | ctc_loss:12.5426 | lr:0.00100000
+2022-08-14 23:14:37,343 - info - 32 - INFO - recog example c------------------------ => c                   , gt: joint               
+2022-08-14 23:14:37,343 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 727                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example b------------------------ => b                   , gt: 198                 
+2022-08-14 23:14:37,344 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:14:37,345 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:14:37,345 - info - 32 - INFO - val loss: 193.113281, val accuray: 0.000000
+2022-08-14 23:14:37,348 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:38,203 - info - 32 - INFO - (141/200/0/15) | ctc_loss:13.9333 | lr:0.00100000
+2022-08-14 23:14:43,364 - info - 32 - INFO - (141/200/10/15) | ctc_loss:12.6117 | lr:0.00100000
+2022-08-14 23:14:48,174 - info - 32 - INFO - recog example c------------------------ => c                   , gt: joint               
+2022-08-14 23:14:48,174 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:14:48,174 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:14:48,175 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:14:48,175 - info - 32 - INFO - val loss: 192.043243, val accuray: 0.000000
+2022-08-14 23:14:48,178 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:48,967 - info - 32 - INFO - (142/200/0/15) | ctc_loss:10.6561 | lr:0.00100000
+2022-08-14 23:14:53,914 - info - 32 - INFO - (142/200/10/15) | ctc_loss:12.6380 | lr:0.00100000
+2022-08-14 23:14:58,698 - info - 32 - INFO - recog example c------------------------ => c                   , gt: joint               
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example ----------------------nne => ne                  , gt: yourself            
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:14:58,699 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:14:58,700 - info - 32 - INFO - val loss: 200.043900, val accuray: 0.000000
+2022-08-14 23:14:58,703 - info - 32 - INFO - best_acc:0
+2022-08-14 23:14:59,446 - info - 32 - INFO - (143/200/0/15) | ctc_loss:12.4769 | lr:0.00100000
+2022-08-14 23:15:04,473 - info - 32 - INFO - (143/200/10/15) | ctc_loss:12.9825 | lr:0.00100000
+2022-08-14 23:15:09,550 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: joint               
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example -----------------------ge => ge                  , gt: yourself            
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 727                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:15:09,551 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:15:09,551 - info - 32 - INFO - val loss: 199.004822, val accuray: 0.000000
+2022-08-14 23:15:09,554 - info - 32 - INFO - best_acc:0
+2022-08-14 23:15:10,464 - info - 32 - INFO - (144/200/0/15) | ctc_loss:9.9678 | lr:0.00100000
+2022-08-14 23:15:15,629 - info - 32 - INFO - (144/200/10/15) | ctc_loss:12.3385 | lr:0.00100000
+2022-08-14 23:15:20,454 - info - 32 - INFO - recog example ------------------------e => e                   , gt: joint               
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:15:20,455 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:15:20,455 - info - 32 - INFO - val loss: 195.448166, val accuray: 0.000000
+2022-08-14 23:15:20,458 - info - 32 - INFO - best_acc:0
+2022-08-14 23:15:21,221 - info - 32 - INFO - (145/200/0/15) | ctc_loss:11.3988 | lr:0.00100000
+2022-08-14 23:15:26,410 - info - 32 - INFO - (145/200/10/15) | ctc_loss:13.0789 | lr:0.00100000
+2022-08-14 23:15:31,298 - info - 32 - INFO - recog example l------------------------ => l                   , gt: joint               
+2022-08-14 23:15:31,299 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:15:31,299 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:15:31,300 - info - 32 - INFO - recog example fs----------------------- => fs                  , gt: free                
+2022-08-14 23:15:31,300 - info - 32 - INFO - val loss: 202.959198, val accuray: 0.000000
+2022-08-14 23:15:31,303 - info - 32 - INFO - best_acc:0
+2022-08-14 23:15:32,151 - info - 32 - INFO - (146/200/0/15) | ctc_loss:13.8602 | lr:0.00100000
+2022-08-14 23:15:37,297 - info - 32 - INFO - (146/200/10/15) | ctc_loss:13.2725 | lr:0.00100000
+2022-08-14 23:15:42,538 - info - 32 - INFO - recog example ------------------------e => e                   , gt: joint               
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example h---------------------nng => hng                 , gt: yourself            
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:15:42,539 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:15:42,539 - info - 32 - INFO - val loss: 197.078903, val accuray: 0.000000
+2022-08-14 23:15:42,543 - info - 32 - INFO - best_acc:0
+2022-08-14 23:15:43,375 - info - 32 - INFO - (147/200/0/15) | ctc_loss:12.4712 | lr:0.00100000
+2022-08-14 23:15:48,445 - info - 32 - INFO - (147/200/10/15) | ctc_loss:12.6555 | lr:0.00100000
+2022-08-14 23:15:53,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: joint               
+2022-08-14 23:15:53,296 - info - 32 - INFO - recog example s--------------------nnng => sng                 , gt: yourself            
+2022-08-14 23:15:53,296 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 197                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:15:53,297 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:15:53,297 - info - 32 - INFO - val loss: 199.847015, val accuray: 0.000000
+2022-08-14 23:15:53,300 - info - 32 - INFO - best_acc:0
+2022-08-14 23:15:54,154 - info - 32 - INFO - (148/200/0/15) | ctc_loss:11.1495 | lr:0.00100000
+2022-08-14 23:15:59,244 - info - 32 - INFO - (148/200/10/15) | ctc_loss:12.5058 | lr:0.00100000
+2022-08-14 23:16:04,266 - info - 32 - INFO - recog example l------------------------ => l                   , gt: joint               
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example s---------------------n-- => sn                  , gt: yourself            
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:16:04,267 - info - 32 - INFO - recog example p------------------------ => p                   , gt: free                
+2022-08-14 23:16:04,267 - info - 32 - INFO - val loss: 202.320236, val accuray: 0.000000
+2022-08-14 23:16:04,271 - info - 32 - INFO - best_acc:0
+2022-08-14 23:16:05,137 - info - 32 - INFO - (149/200/0/15) | ctc_loss:10.6687 | lr:0.00100000
+2022-08-14 23:16:10,232 - info - 32 - INFO - (149/200/10/15) | ctc_loss:12.4788 | lr:0.00100000
+2022-08-14 23:16:15,268 - info - 32 - INFO - recog example s------------------------ => s                   , gt: joint               
+2022-08-14 23:16:15,268 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:16:15,268 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:16:15,268 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:16:15,268 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 727                 
+2022-08-14 23:16:15,269 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:15,269 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:15,269 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:15,269 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:16:15,269 - info - 32 - INFO - recog example f------------------------ => f                   , gt: free                
+2022-08-14 23:16:15,269 - info - 32 - INFO - val loss: 194.616119, val accuray: 0.000000
+2022-08-14 23:16:15,272 - info - 32 - INFO - best_acc:0
+2022-08-14 23:16:16,144 - info - 32 - INFO - (150/200/0/15) | ctc_loss:9.7945 | lr:0.00100000
+2022-08-14 23:16:21,199 - info - 32 - INFO - (150/200/10/15) | ctc_loss:12.3319 | lr:0.00100000
+2022-08-14 23:16:26,265 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: joint               
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example ----------------------nne => ne                  , gt: yourself            
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 727                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:16:26,266 - info - 32 - INFO - recog example fss---------------------- => fs                  , gt: free                
+2022-08-14 23:16:26,266 - info - 32 - INFO - val loss: 193.190643, val accuray: 0.000000
+2022-08-14 23:16:26,270 - info - 32 - INFO - best_acc:0
+2022-08-14 23:16:27,102 - info - 32 - INFO - (151/200/0/15) | ctc_loss:10.0842 | lr:0.00100000
+2022-08-14 23:16:34,080 - info - 32 - INFO - (151/200/10/15) | ctc_loss:11.9991 | lr:0.00100000
+2022-08-14 23:16:42,678 - info - 32 - INFO - recog example c----------------------ee => ce                  , gt: joint               
+2022-08-14 23:16:42,678 - info - 32 - INFO - recog example s--------------------nnge => snge                , gt: yourself            
+2022-08-14 23:16:42,678 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:16:42,679 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:16:42,679 - info - 32 - INFO - val loss: 194.005432, val accuray: 0.000000
+2022-08-14 23:16:42,683 - info - 32 - INFO - best_acc:0
+2022-08-14 23:16:43,418 - info - 32 - INFO - (152/200/0/15) | ctc_loss:12.4616 | lr:0.00100000
+2022-08-14 23:16:48,405 - info - 32 - INFO - (152/200/10/15) | ctc_loss:11.7004 | lr:0.00100000
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example p------------------------ => p                   , gt: 727                 
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:53,261 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:16:53,262 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 20029               
+2022-08-14 23:16:53,262 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:16:53,262 - info - 32 - INFO - val loss: 196.127838, val accuray: 0.000000
+2022-08-14 23:16:53,265 - info - 32 - INFO - best_acc:0
+2022-08-14 23:16:54,129 - info - 32 - INFO - (153/200/0/15) | ctc_loss:10.9500 | lr:0.00100000
+2022-08-14 23:16:59,377 - info - 32 - INFO - (153/200/10/15) | ctc_loss:11.7950 | lr:0.00100000
+2022-08-14 23:17:04,250 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: joint               
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:17:04,251 - info - 32 - INFO - recog example p------------------------ => p                   , gt: free                
+2022-08-14 23:17:04,251 - info - 32 - INFO - val loss: 196.256760, val accuray: 0.000000
+2022-08-14 23:17:04,254 - info - 32 - INFO - best_acc:0
+2022-08-14 23:17:05,019 - info - 32 - INFO - (154/200/0/15) | ctc_loss:9.6046 | lr:0.00100000
+2022-08-14 23:17:10,131 - info - 32 - INFO - (154/200/10/15) | ctc_loss:11.5419 | lr:0.00100000
+2022-08-14 23:17:14,942 - info - 32 - INFO - recog example c------------------------ => c                   , gt: joint               
+2022-08-14 23:17:14,942 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:17:14,942 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:17:14,942 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 197                 
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example l------------------------ => l                   , gt: 198                 
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example l------------------------ => l                   , gt: 198                 
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example l------------------------ => l                   , gt: 198                 
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:17:14,943 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:17:14,943 - info - 32 - INFO - val loss: 195.215622, val accuray: 0.000000
+2022-08-14 23:17:14,946 - info - 32 - INFO - best_acc:0
+2022-08-14 23:17:15,760 - info - 32 - INFO - (155/200/0/15) | ctc_loss:10.1550 | lr:0.00100000
+2022-08-14 23:17:20,899 - info - 32 - INFO - (155/200/10/15) | ctc_loss:11.2388 | lr:0.00100000
+2022-08-14 23:17:25,926 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: joint               
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example s---------------------n-- => sn                  , gt: yourself            
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:17:25,927 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 20029               
+2022-08-14 23:17:25,928 - info - 32 - INFO - recog example fo----------------------y => foy                 , gt: free                
+2022-08-14 23:17:25,928 - info - 32 - INFO - val loss: 195.446213, val accuray: 0.000000
+2022-08-14 23:17:25,931 - info - 32 - INFO - best_acc:0
+2022-08-14 23:17:26,654 - info - 32 - INFO - (156/200/0/15) | ctc_loss:12.6946 | lr:0.00100000
+2022-08-14 23:17:31,708 - info - 32 - INFO - (156/200/10/15) | ctc_loss:11.3992 | lr:0.00100000
+2022-08-14 23:17:38,072 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:17:38,072 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:17:38,072 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 154                 
+2022-08-14 23:17:38,072 - info - 32 - INFO - recog example 4------------------------ => 4                   , gt: 197                 
+2022-08-14 23:17:38,072 - info - 32 - INFO - recog example p-----------------------e => pe                  , gt: 727                 
+2022-08-14 23:17:38,073 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:38,073 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 198                 
+2022-08-14 23:17:38,073 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:38,073 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:17:38,073 - info - 32 - INFO - recog example ------------------------- =>                     , gt: free                
+2022-08-14 23:17:38,073 - info - 32 - INFO - val loss: 199.697784, val accuray: 0.000000
+2022-08-14 23:17:38,077 - info - 32 - INFO - best_acc:0
+2022-08-14 23:17:39,001 - info - 32 - INFO - (157/200/0/15) | ctc_loss:11.4585 | lr:0.00100000
+2022-08-14 23:17:44,659 - info - 32 - INFO - (157/200/10/15) | ctc_loss:11.3796 | lr:0.00100000
+2022-08-14 23:17:49,784 - info - 32 - INFO - recog example -----------------------ey => ey                  , gt: joint               
+2022-08-14 23:17:49,784 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:17:49,784 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example p------------------------ => p                   , gt: 727                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:17:49,785 - info - 32 - INFO - recog example p------------------------ => p                   , gt: free                
+2022-08-14 23:17:49,785 - info - 32 - INFO - val loss: 200.192505, val accuray: 0.000000
+2022-08-14 23:17:49,788 - info - 32 - INFO - best_acc:0
+2022-08-14 23:17:50,487 - info - 32 - INFO - (158/200/0/15) | ctc_loss:9.9711 | lr:0.00100000
+2022-08-14 23:17:55,855 - info - 32 - INFO - (158/200/10/15) | ctc_loss:11.6976 | lr:0.00100000
+2022-08-14 23:18:01,324 - info - 32 - INFO - recog example l---------------------n-- => ln                  , gt: joint               
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example p------------------------ => p                   , gt: 727                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example ------------------------e => e                   , gt: 20029               
+2022-08-14 23:18:01,325 - info - 32 - INFO - recog example pu----------------------- => pu                  , gt: free                
+2022-08-14 23:18:01,325 - info - 32 - INFO - val loss: 197.256317, val accuray: 0.000000
+2022-08-14 23:18:01,329 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:02,086 - info - 32 - INFO - (159/200/0/15) | ctc_loss:12.8110 | lr:0.00100000
+2022-08-14 23:18:07,148 - info - 32 - INFO - (159/200/10/15) | ctc_loss:11.7041 | lr:0.00100000
+2022-08-14 23:18:12,691 - info - 32 - INFO - recog example l------------------------ => l                   , gt: joint               
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example p------------------------ => p                   , gt: 727                 
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:12,692 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:12,693 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 20029               
+2022-08-14 23:18:12,693 - info - 32 - INFO - recog example p------------------------ => p                   , gt: free                
+2022-08-14 23:18:12,693 - info - 32 - INFO - val loss: 198.536911, val accuray: 0.000000
+2022-08-14 23:18:12,696 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:13,551 - info - 32 - INFO - (160/200/0/15) | ctc_loss:11.4805 | lr:0.00100000
+2022-08-14 23:18:18,691 - info - 32 - INFO - (160/200/10/15) | ctc_loss:11.2128 | lr:0.00100000
+2022-08-14 23:18:23,897 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example --------------------nnngg => ng                  , gt: yourself            
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 727                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 198                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 198                 
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example ------------------------e => e                   , gt: 20029               
+2022-08-14 23:18:23,898 - info - 32 - INFO - recog example pu----------------------e => pue                 , gt: free                
+2022-08-14 23:18:23,898 - info - 32 - INFO - val loss: 201.064606, val accuray: 0.000000
+2022-08-14 23:18:23,902 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:24,730 - info - 32 - INFO - (161/200/0/15) | ctc_loss:11.5363 | lr:0.00100000
+2022-08-14 23:18:30,061 - info - 32 - INFO - (161/200/10/15) | ctc_loss:11.2884 | lr:0.00100000
+2022-08-14 23:18:35,191 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: joint               
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example h-------------------nnngg => hng                 , gt: yourself            
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 154                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example m-----------------------s => ms                  , gt: 727                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 20029               
+2022-08-14 23:18:35,192 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:18:35,192 - info - 32 - INFO - val loss: 204.709793, val accuray: 0.000000
+2022-08-14 23:18:35,196 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:36,021 - info - 32 - INFO - (162/200/0/15) | ctc_loss:10.3646 | lr:0.00100000
+2022-08-14 23:18:41,511 - info - 32 - INFO - (162/200/10/15) | ctc_loss:10.9309 | lr:0.00100000
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:18:46,600 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:46,601 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:46,601 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:46,601 - info - 32 - INFO - recog example m-----------------------y => my                  , gt: 20029               
+2022-08-14 23:18:46,601 - info - 32 - INFO - recog example fu----------------------- => fu                  , gt: free                
+2022-08-14 23:18:46,601 - info - 32 - INFO - val loss: 205.379181, val accuray: 0.000000
+2022-08-14 23:18:46,604 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:47,322 - info - 32 - INFO - (163/200/0/15) | ctc_loss:10.7400 | lr:0.00100000
+2022-08-14 23:18:52,472 - info - 32 - INFO - (163/200/10/15) | ctc_loss:11.1597 | lr:0.00100000
+2022-08-14 23:18:57,712 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example ------------------------- =>                     , gt: 198                 
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example ------------------------e => e                   , gt: 20029               
+2022-08-14 23:18:57,713 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:18:57,713 - info - 32 - INFO - val loss: 203.010406, val accuray: 0.000000
+2022-08-14 23:18:57,717 - info - 32 - INFO - best_acc:0
+2022-08-14 23:18:58,484 - info - 32 - INFO - (164/200/0/15) | ctc_loss:10.9711 | lr:0.00100000
+2022-08-14 23:19:03,808 - info - 32 - INFO - (164/200/10/15) | ctc_loss:11.2358 | lr:0.00100000
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 198                 
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example s-----------------------y => sy                  , gt: 20029               
+2022-08-14 23:19:09,057 - info - 32 - INFO - recog example pp----------------------s => ps                  , gt: free                
+2022-08-14 23:19:09,058 - info - 32 - INFO - val loss: 202.923996, val accuray: 0.000000
+2022-08-14 23:19:09,061 - info - 32 - INFO - best_acc:0
+2022-08-14 23:19:09,858 - info - 32 - INFO - (165/200/0/15) | ctc_loss:12.6888 | lr:0.00100000
+2022-08-14 23:19:15,051 - info - 32 - INFO - (165/200/10/15) | ctc_loss:11.1748 | lr:0.00100000
+2022-08-14 23:19:20,180 - info - 32 - INFO - recog example ------------------------e => e                   , gt: joint               
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 154                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 197                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example m-----------------------e => me                  , gt: 727                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example 1----------------------77 => 17                  , gt: 198                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 198                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example 1----------------------77 => 17                  , gt: 198                 
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example l-----------------------7 => l7                  , gt: 20029               
+2022-08-14 23:19:20,181 - info - 32 - INFO - recog example fu----------------------y => fuy                 , gt: free                
+2022-08-14 23:19:20,182 - info - 32 - INFO - val loss: 201.947754, val accuray: 0.000000
+2022-08-14 23:19:20,185 - info - 32 - INFO - best_acc:0
+2022-08-14 23:19:20,949 - info - 32 - INFO - (166/200/0/15) | ctc_loss:11.2964 | lr:0.00100000
+2022-08-14 23:19:26,356 - info - 32 - INFO - (166/200/10/15) | ctc_loss:10.8646 | lr:0.00100000
+2022-08-14 23:19:31,689 - info - 32 - INFO - recog example l------------------------ => l                   , gt: joint               
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example h-----------------------e => he                  , gt: yourself            
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 154                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 197                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example 1----------------------77 => 17                  , gt: 198                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example 4-----------------------7 => 47                  , gt: 198                 
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:19:31,690 - info - 32 - INFO - recog example pl----------------------- => pl                  , gt: free                
+2022-08-14 23:19:31,690 - info - 32 - INFO - val loss: 209.747040, val accuray: 0.000000
+2022-08-14 23:19:31,694 - info - 32 - INFO - best_acc:0
+2022-08-14 23:19:32,493 - info - 32 - INFO - (167/200/0/15) | ctc_loss:9.7919 | lr:0.00100000
+2022-08-14 23:19:37,705 - info - 32 - INFO - (167/200/10/15) | ctc_loss:11.3509 | lr:0.00100000
+2022-08-14 23:19:43,012 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 20029               
+2022-08-14 23:19:43,013 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:19:43,013 - info - 32 - INFO - val loss: 202.854950, val accuray: 0.000000
+2022-08-14 23:19:43,017 - info - 32 - INFO - best_acc:0
+2022-08-14 23:19:43,817 - info - 32 - INFO - (168/200/0/15) | ctc_loss:11.9925 | lr:0.00100000
+2022-08-14 23:19:49,110 - info - 32 - INFO - (168/200/10/15) | ctc_loss:10.5799 | lr:0.00100000
+2022-08-14 23:19:54,485 - info - 32 - INFO - recog example s----------------------ee => se                  , gt: joint               
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example pc----------------------s => pcs                 , gt: 727                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example s------------------------ => s                   , gt: 20029               
+2022-08-14 23:19:54,486 - info - 32 - INFO - recog example pu----------------------- => pu                  , gt: free                
+2022-08-14 23:19:54,486 - info - 32 - INFO - val loss: 203.650726, val accuray: 0.000000
+2022-08-14 23:19:54,489 - info - 32 - INFO - best_acc:0
+2022-08-14 23:19:55,373 - info - 32 - INFO - (169/200/0/15) | ctc_loss:12.2415 | lr:0.00100000
+2022-08-14 23:20:00,649 - info - 32 - INFO - (169/200/10/15) | ctc_loss:10.4030 | lr:0.00100000
+2022-08-14 23:20:05,836 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: joint               
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 154                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 197                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example pt----------------------- => pt                  , gt: 727                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 20029               
+2022-08-14 23:20:05,837 - info - 32 - INFO - recog example pp----------------------- => p                   , gt: free                
+2022-08-14 23:20:05,837 - info - 32 - INFO - val loss: 201.596970, val accuray: 0.000000
+2022-08-14 23:20:05,841 - info - 32 - INFO - best_acc:0
+2022-08-14 23:20:06,532 - info - 32 - INFO - (170/200/0/15) | ctc_loss:8.5622 | lr:0.00100000
+2022-08-14 23:20:11,752 - info - 32 - INFO - (170/200/10/15) | ctc_loss:11.0962 | lr:0.00100000
+2022-08-14 23:20:17,254 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:20:17,254 - info - 32 - INFO - recog example s------------------------ => s                   , gt: yourself            
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example pr----------------------- => pr                  , gt: 727                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example ------------------------y => y                   , gt: 20029               
+2022-08-14 23:20:17,255 - info - 32 - INFO - recog example p-----------------------y => py                  , gt: free                
+2022-08-14 23:20:17,255 - info - 32 - INFO - val loss: 207.659637, val accuray: 0.000000
+2022-08-14 23:20:17,258 - info - 32 - INFO - best_acc:0
+2022-08-14 23:20:18,142 - info - 32 - INFO - (171/200/0/15) | ctc_loss:9.3802 | lr:0.00100000
+2022-08-14 23:20:23,390 - info - 32 - INFO - (171/200/10/15) | ctc_loss:11.0427 | lr:0.00100000
+2022-08-14 23:20:28,723 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example s---------------------n-e => sne                 , gt: yourself            
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example ------------------------s => s                   , gt: 198                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:20:28,724 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:20:28,724 - info - 32 - INFO - val loss: 204.436600, val accuray: 0.000000
+2022-08-14 23:20:28,728 - info - 32 - INFO - best_acc:0
+2022-08-14 23:20:29,571 - info - 32 - INFO - (172/200/0/15) | ctc_loss:10.9900 | lr:0.00100000
+2022-08-14 23:20:34,855 - info - 32 - INFO - (172/200/10/15) | ctc_loss:10.4077 | lr:0.00100000
+2022-08-14 23:20:39,920 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example s-------------------nn--- => sn                  , gt: yourself            
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 20029               
+2022-08-14 23:20:39,921 - info - 32 - INFO - recog example fo----------------------- => fo                  , gt: free                
+2022-08-14 23:20:39,921 - info - 32 - INFO - val loss: 205.265747, val accuray: 0.000000
+2022-08-14 23:20:39,924 - info - 32 - INFO - best_acc:0
+2022-08-14 23:20:40,727 - info - 32 - INFO - (173/200/0/15) | ctc_loss:7.5075 | lr:0.00100000
+2022-08-14 23:20:46,133 - info - 32 - INFO - (173/200/10/15) | ctc_loss:10.0214 | lr:0.00100000
+2022-08-14 23:20:51,533 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example b-----------------------e => be                  , gt: yourself            
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 20029               
+2022-08-14 23:20:51,534 - info - 32 - INFO - recog example p------------------------ => p                   , gt: free                
+2022-08-14 23:20:51,534 - info - 32 - INFO - val loss: 210.315094, val accuray: 0.000000
+2022-08-14 23:20:51,537 - info - 32 - INFO - best_acc:0
+2022-08-14 23:20:52,298 - info - 32 - INFO - (174/200/0/15) | ctc_loss:11.1376 | lr:0.00100000
+2022-08-14 23:20:57,650 - info - 32 - INFO - (174/200/10/15) | ctc_loss:10.4275 | lr:0.00100000
+2022-08-14 23:21:03,053 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:21:03,053 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 197                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example t-----------------------e => te                  , gt: 727                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:21:03,054 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:21:03,054 - info - 32 - INFO - val loss: 209.396484, val accuray: 0.000000
+2022-08-14 23:21:03,057 - info - 32 - INFO - best_acc:0
+2022-08-14 23:21:03,936 - info - 32 - INFO - (175/200/0/15) | ctc_loss:10.2635 | lr:0.00100000
+2022-08-14 23:21:09,366 - info - 32 - INFO - (175/200/10/15) | ctc_loss:10.1906 | lr:0.00100000
+2022-08-14 23:21:14,730 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:21:14,730 - info - 32 - INFO - recog example --------------------nnn-e => ne                  , gt: yourself            
+2022-08-14 23:21:14,730 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:21:14,730 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example p-----------------------e => pe                  , gt: 727                 
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example c-----------------------5 => c5                  , gt: 198                 
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example m-----------------------e => me                  , gt: 20029               
+2022-08-14 23:21:14,731 - info - 32 - INFO - recog example pp----------------------- => p                   , gt: free                
+2022-08-14 23:21:14,731 - info - 32 - INFO - val loss: 205.537842, val accuray: 0.000000
+2022-08-14 23:21:14,734 - info - 32 - INFO - best_acc:0
+2022-08-14 23:21:15,563 - info - 32 - INFO - (176/200/0/15) | ctc_loss:12.5065 | lr:0.00100000
+2022-08-14 23:21:20,969 - info - 32 - INFO - (176/200/10/15) | ctc_loss:10.3266 | lr:0.00100000
+2022-08-14 23:21:26,272 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example -------------------nnnnne => ne                  , gt: yourself            
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example m-----------------------e => me                  , gt: 727                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 198                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example m-----------------------e => me                  , gt: 20029               
+2022-08-14 23:21:26,273 - info - 32 - INFO - recog example p-----------------------e => pe                  , gt: free                
+2022-08-14 23:21:26,274 - info - 32 - INFO - val loss: 211.260895, val accuray: 0.000000
+2022-08-14 23:21:26,278 - info - 32 - INFO - best_acc:0
+2022-08-14 23:21:27,072 - info - 32 - INFO - (177/200/0/15) | ctc_loss:8.6044 | lr:0.00100000
+2022-08-14 23:21:32,633 - info - 32 - INFO - (177/200/10/15) | ctc_loss:10.0350 | lr:0.00100000
+2022-08-14 23:21:38,241 - info - 32 - INFO - recog example l------------------n----e => lne                 , gt: joint               
+2022-08-14 23:21:38,241 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: yourself            
+2022-08-14 23:21:38,241 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:21:38,241 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:21:38,241 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:21:38,242 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:21:38,242 - info - 32 - INFO - recog example ii----------------------s => is                  , gt: 198                 
+2022-08-14 23:21:38,242 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:21:38,242 - info - 32 - INFO - recog example s-----------------------y => sy                  , gt: 20029               
+2022-08-14 23:21:38,242 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:21:38,242 - info - 32 - INFO - val loss: 210.002762, val accuray: 0.000000
+2022-08-14 23:21:38,245 - info - 32 - INFO - best_acc:0
+2022-08-14 23:21:39,003 - info - 32 - INFO - (178/200/0/15) | ctc_loss:9.7011 | lr:0.00100000
+2022-08-14 23:21:44,321 - info - 32 - INFO - (178/200/10/15) | ctc_loss:10.1564 | lr:0.00100000
+2022-08-14 23:21:49,510 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example s---------------------n-e => sne                 , gt: yourself            
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example fo--o-------------------- => foo                 , gt: 727                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:21:49,511 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 20029               
+2022-08-14 23:21:49,512 - info - 32 - INFO - recog example pl----------------------- => pl                  , gt: free                
+2022-08-14 23:21:49,512 - info - 32 - INFO - val loss: 212.911224, val accuray: 0.000000
+2022-08-14 23:21:49,515 - info - 32 - INFO - best_acc:0
+2022-08-14 23:21:50,319 - info - 32 - INFO - (179/200/0/15) | ctc_loss:11.3945 | lr:0.00100000
+2022-08-14 23:21:55,648 - info - 32 - INFO - (179/200/10/15) | ctc_loss:9.7379 | lr:0.00100000
+2022-08-14 23:22:01,049 - info - 32 - INFO - recog example l-----------------nnn---e => lne                 , gt: joint               
+2022-08-14 23:22:01,049 - info - 32 - INFO - recog example s--------------------nn-e => sne                 , gt: yourself            
+2022-08-14 23:22:01,049 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:22:01,049 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 197                 
+2022-08-14 23:22:01,049 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:22:01,050 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:01,050 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:01,050 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:01,050 - info - 32 - INFO - recog example m-----------------------y => my                  , gt: 20029               
+2022-08-14 23:22:01,050 - info - 32 - INFO - recog example p-a---------------------y => pay                 , gt: free                
+2022-08-14 23:22:01,050 - info - 32 - INFO - val loss: 214.185760, val accuray: 0.010000
+2022-08-14 23:22:01,105 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:01,979 - info - 32 - INFO - (180/200/0/15) | ctc_loss:9.2989 | lr:0.00100000
+2022-08-14 23:22:07,381 - info - 32 - INFO - (180/200/10/15) | ctc_loss:10.1626 | lr:0.00100000
+2022-08-14 23:22:12,554 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:22:12,554 - info - 32 - INFO - recog example s--------------------nnn- => sn                  , gt: yourself            
+2022-08-14 23:22:12,554 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:22:12,554 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 197                 
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 727                 
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 198                 
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example c-----------------------s => cs                  , gt: 198                 
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: 20029               
+2022-08-14 23:22:12,555 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:22:12,555 - info - 32 - INFO - val loss: 212.779663, val accuray: 0.010000
+2022-08-14 23:22:12,558 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:13,409 - info - 32 - INFO - (181/200/0/15) | ctc_loss:9.9142 | lr:0.00100000
+2022-08-14 23:22:18,770 - info - 32 - INFO - (181/200/10/15) | ctc_loss:9.7529 | lr:0.00100000
+2022-08-14 23:22:23,698 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example s---------------------nge => snge                , gt: yourself            
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example 1-----------------------7 => 17                  , gt: 154                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 197                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example mr----------------------e => mre                 , gt: 727                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 20029               
+2022-08-14 23:22:23,699 - info - 32 - INFO - recog example p-----------------------s => ps                  , gt: free                
+2022-08-14 23:22:23,699 - info - 32 - INFO - val loss: 222.230438, val accuray: 0.000000
+2022-08-14 23:22:23,702 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:24,456 - info - 32 - INFO - (182/200/0/15) | ctc_loss:10.3469 | lr:0.00100000
+2022-08-14 23:22:29,946 - info - 32 - INFO - (182/200/10/15) | ctc_loss:10.5034 | lr:0.00100000
+2022-08-14 23:22:35,469 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 197                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example m----------------------ey => mey                 , gt: 727                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example 1----------------------73 => 173                 , gt: 198                 
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 20029               
+2022-08-14 23:22:35,470 - info - 32 - INFO - recog example p-----------------------y => py                  , gt: free                
+2022-08-14 23:22:35,471 - info - 32 - INFO - val loss: 215.992432, val accuray: 0.000000
+2022-08-14 23:22:35,474 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:36,328 - info - 32 - INFO - (183/200/0/15) | ctc_loss:10.0490 | lr:0.00100000
+2022-08-14 23:22:41,684 - info - 32 - INFO - (183/200/10/15) | ctc_loss:9.4158 | lr:0.00100000
+2022-08-14 23:22:46,883 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:22:46,883 - info - 32 - INFO - recog example ------------------------- =>                     , gt: yourself            
+2022-08-14 23:22:46,883 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:22:46,883 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 197                 
+2022-08-14 23:22:46,883 - info - 32 - INFO - recog example ta-a--------------------s => taas                , gt: 727                 
+2022-08-14 23:22:46,884 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:46,884 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:46,884 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:22:46,884 - info - 32 - INFO - recog example m------------------------ => m                   , gt: 20029               
+2022-08-14 23:22:46,884 - info - 32 - INFO - recog example pt----------------------s => pts                 , gt: free                
+2022-08-14 23:22:46,884 - info - 32 - INFO - val loss: 212.884064, val accuray: 0.000000
+2022-08-14 23:22:46,888 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:47,697 - info - 32 - INFO - (184/200/0/15) | ctc_loss:8.5415 | lr:0.00100000
+2022-08-14 23:22:53,162 - info - 32 - INFO - (184/200/10/15) | ctc_loss:9.7830 | lr:0.00100000
+2022-08-14 23:22:58,482 - info - 32 - INFO - recog example l-------------------nnnee => lne                 , gt: joint               
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example ----------------------nee => ne                  , gt: yourself            
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 154                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 197                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example m-----------------------y => my                  , gt: 727                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example w----------------------75 => w75                 , gt: 198                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example 1----------------------75 => 175                 , gt: 198                 
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example s-----------------------y => sy                  , gt: 20029               
+2022-08-14 23:22:58,483 - info - 32 - INFO - recog example fo----------------------e => foe                 , gt: free                
+2022-08-14 23:22:58,483 - info - 32 - INFO - val loss: 212.397659, val accuray: 0.000000
+2022-08-14 23:22:58,488 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:22:59,237 - info - 32 - INFO - (185/200/0/15) | ctc_loss:8.6279 | lr:0.00100000
+2022-08-14 23:23:04,507 - info - 32 - INFO - (185/200/10/15) | ctc_loss:9.9394 | lr:0.00100000
+2022-08-14 23:23:09,795 - info - 32 - INFO - recog example l--------------------n-ee => lne                 , gt: joint               
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example l-------------------nnn-e => lne                 , gt: yourself            
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 197                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example mac---------------------s => macs                , gt: 727                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example c----oo----------------ee => coe                 , gt: 198                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:23:09,796 - info - 32 - INFO - recog example ca----------------------y => cay                 , gt: 20029               
+2022-08-14 23:23:09,797 - info - 32 - INFO - recog example nt----------------------e => nte                 , gt: free                
+2022-08-14 23:23:09,797 - info - 32 - INFO - val loss: 213.912109, val accuray: 0.000000
+2022-08-14 23:23:09,800 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:23:10,515 - info - 32 - INFO - (186/200/0/15) | ctc_loss:9.7762 | lr:0.00100000
+2022-08-14 23:23:15,935 - info - 32 - INFO - (186/200/10/15) | ctc_loss:9.2600 | lr:0.00100000
+2022-08-14 23:23:21,204 - info - 32 - INFO - recog example l-----------o----------ee => loe                 , gt: joint               
+2022-08-14 23:23:21,204 - info - 32 - INFO - recog example b-----------------------e => be                  , gt: yourself            
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 197                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example m-----------------------s => ms                  , gt: 727                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example c-----------------------5 => c5                  , gt: 198                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example c-----------------------5 => c5                  , gt: 198                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example m-----------------------s => ms                  , gt: 20029               
+2022-08-14 23:23:21,205 - info - 32 - INFO - recog example fr----------------------s => frs                 , gt: free                
+2022-08-14 23:23:21,205 - info - 32 - INFO - val loss: 214.399811, val accuray: 0.010000
+2022-08-14 23:23:21,208 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:23:21,977 - info - 32 - INFO - (187/200/0/15) | ctc_loss:7.6318 | lr:0.00100000
+2022-08-14 23:23:27,362 - info - 32 - INFO - (187/200/10/15) | ctc_loss:9.0750 | lr:0.00100000
+2022-08-14 23:23:32,721 - info - 32 - INFO - recog example h------------------------ => h                   , gt: joint               
+2022-08-14 23:23:32,721 - info - 32 - INFO - recog example h-----------------------e => he                  , gt: yourself            
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 154                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example maaa--------------------e => mae                 , gt: 727                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example m----------------------ey => mey                 , gt: 20029               
+2022-08-14 23:23:32,722 - info - 32 - INFO - recog example po----------------------e => poe                 , gt: free                
+2022-08-14 23:23:32,722 - info - 32 - INFO - val loss: 216.094437, val accuray: 0.000000
+2022-08-14 23:23:32,725 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:23:33,549 - info - 32 - INFO - (188/200/0/15) | ctc_loss:10.6772 | lr:0.00100000
+2022-08-14 23:23:39,001 - info - 32 - INFO - (188/200/10/15) | ctc_loss:8.8578 | lr:0.00100000
+2022-08-14 23:23:44,177 - info - 32 - INFO - recog example s---------------------nee => sne                 , gt: joint               
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example c-----------------------s => cs                  , gt: 197                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example m-----------------------y => my                  , gt: 727                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example m-----------------------y => my                  , gt: 20029               
+2022-08-14 23:23:44,178 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:23:44,179 - info - 32 - INFO - val loss: 213.464935, val accuray: 0.010000
+2022-08-14 23:23:44,182 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:23:44,898 - info - 32 - INFO - (189/200/0/15) | ctc_loss:12.4630 | lr:0.00100000
+2022-08-14 23:23:50,274 - info - 32 - INFO - (189/200/10/15) | ctc_loss:9.4089 | lr:0.00100000
+2022-08-14 23:23:55,433 - info - 32 - INFO - recog example l----------------------n- => ln                  , gt: joint               
+2022-08-14 23:23:55,433 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:23:55,433 - info - 32 - INFO - recog example ee----------------------- => e                   , gt: 154                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example c-----------------------s => cs                  , gt: 197                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example maaa--------------------s => mas                 , gt: 727                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example mr----------------------s => mrs                 , gt: 20029               
+2022-08-14 23:23:55,434 - info - 32 - INFO - recog example po----------------------- => po                  , gt: free                
+2022-08-14 23:23:55,434 - info - 32 - INFO - val loss: 219.838470, val accuray: 0.010000
+2022-08-14 23:23:55,438 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:23:56,231 - info - 32 - INFO - (190/200/0/15) | ctc_loss:8.6607 | lr:0.00100000
+2022-08-14 23:24:08,398 - info - 32 - INFO - (190/200/10/15) | ctc_loss:9.1524 | lr:0.00100000
+2022-08-14 23:24:15,434 - info - 32 - INFO - recog example l----------------------ey => ley                 , gt: joint               
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example mia---------------------s => mias                , gt: 727                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 198                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 198                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 198                 
+2022-08-14 23:24:15,435 - info - 32 - INFO - recog example m-----------------------e => me                  , gt: 20029               
+2022-08-14 23:24:15,436 - info - 32 - INFO - recog example ooo---------------------- => o                   , gt: free                
+2022-08-14 23:24:15,436 - info - 32 - INFO - val loss: 220.327393, val accuray: 0.000000
+2022-08-14 23:24:15,439 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:24:17,443 - info - 32 - INFO - (191/200/0/15) | ctc_loss:8.8381 | lr:0.00100000
+2022-08-14 23:24:23,491 - info - 32 - INFO - (191/200/10/15) | ctc_loss:9.1521 | lr:0.00100000
+2022-08-14 23:24:28,674 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example b----------------------ey => bey                 , gt: yourself            
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example 1----------------------7y => 17y                 , gt: 197                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example po----------------------- => po                  , gt: 727                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 198                 
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example m----------------------ee => me                  , gt: 20029               
+2022-08-14 23:24:28,675 - info - 32 - INFO - recog example for---------------------- => for                 , gt: free                
+2022-08-14 23:24:28,675 - info - 32 - INFO - val loss: 220.841187, val accuray: 0.000000
+2022-08-14 23:24:28,679 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:24:29,544 - info - 32 - INFO - (192/200/0/15) | ctc_loss:9.3161 | lr:0.00100000
+2022-08-14 23:24:35,117 - info - 32 - INFO - (192/200/10/15) | ctc_loss:9.1344 | lr:0.00100000
+2022-08-14 23:24:40,396 - info - 32 - INFO - recog example l-----------------------e => le                  , gt: joint               
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example poaai-------------------e => poaie               , gt: 727                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 198                 
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: 20029               
+2022-08-14 23:24:40,397 - info - 32 - INFO - recog example fo----------------------e => foe                 , gt: free                
+2022-08-14 23:24:40,397 - info - 32 - INFO - val loss: 218.740601, val accuray: 0.010000
+2022-08-14 23:24:40,401 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:24:41,298 - info - 32 - INFO - (193/200/0/15) | ctc_loss:9.4125 | lr:0.00100000
+2022-08-14 23:24:46,776 - info - 32 - INFO - (193/200/10/15) | ctc_loss:9.4871 | lr:0.00100000
+2022-08-14 23:24:51,908 - info - 32 - INFO - recog example l-------oo-------------ee => loe                 , gt: joint               
+2022-08-14 23:24:51,908 - info - 32 - INFO - recog example ------------------------e => e                   , gt: yourself            
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example 0------------------------ => 0                   , gt: 154                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example w------------------------ => w                   , gt: 197                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example l------------------------ => l                   , gt: 727                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 198                 
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example mr-oo-------------------e => mroe                , gt: 20029               
+2022-08-14 23:24:51,909 - info - 32 - INFO - recog example for---------------------- => for                 , gt: free                
+2022-08-14 23:24:51,909 - info - 32 - INFO - val loss: 216.665253, val accuray: 0.000000
+2022-08-14 23:24:51,914 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:24:52,736 - info - 32 - INFO - (194/200/0/15) | ctc_loss:6.6528 | lr:0.00100000
+2022-08-14 23:24:58,311 - info - 32 - INFO - (194/200/10/15) | ctc_loss:8.9579 | lr:0.00100000
+2022-08-14 23:25:03,568 - info - 32 - INFO - recog example l----------------------ee => le                  , gt: joint               
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 154                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 197                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example ooaa--------------------- => oa                  , gt: 727                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:25:03,569 - info - 32 - INFO - recog example oor---------------------- => or                  , gt: free                
+2022-08-14 23:25:03,569 - info - 32 - INFO - val loss: 220.228928, val accuray: 0.010000
+2022-08-14 23:25:03,573 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:25:04,502 - info - 32 - INFO - (195/200/0/15) | ctc_loss:9.8725 | lr:0.00100000
+2022-08-14 23:25:09,896 - info - 32 - INFO - (195/200/10/15) | ctc_loss:9.1081 | lr:0.00100000
+2022-08-14 23:25:15,021 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: joint               
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example s-----------------------e => se                  , gt: yourself            
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example 1-----------------------5 => 15                  , gt: 154                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example piaa--------------------- => pia                 , gt: 727                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example c-----------------------s => cs                  , gt: 198                 
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example m----------------------es => mes                 , gt: 20029               
+2022-08-14 23:25:15,022 - info - 32 - INFO - recog example prr---------------------s => prs                 , gt: free                
+2022-08-14 23:25:15,023 - info - 32 - INFO - val loss: 226.692627, val accuray: 0.000000
+2022-08-14 23:25:15,026 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:25:15,856 - info - 32 - INFO - (196/200/0/15) | ctc_loss:9.1303 | lr:0.00100000
+2022-08-14 23:25:21,849 - info - 32 - INFO - (196/200/10/15) | ctc_loss:8.4468 | lr:0.00100000
+2022-08-14 23:25:27,559 - info - 32 - INFO - recog example l-------------------n--ee => lne                 , gt: joint               
+2022-08-14 23:25:27,560 - info - 32 - INFO - recog example s-----------------------y => sy                  , gt: yourself            
+2022-08-14 23:25:27,560 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:25:27,560 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 197                 
+2022-08-14 23:25:27,560 - info - 32 - INFO - recog example maa---------------------s => mas                 , gt: 727                 
+2022-08-14 23:25:27,560 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:27,561 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:27,561 - info - 32 - INFO - recog example w-----------------------e => we                  , gt: 198                 
+2022-08-14 23:25:27,561 - info - 32 - INFO - recog example t-----------------------e => te                  , gt: 20029               
+2022-08-14 23:25:27,561 - info - 32 - INFO - recog example po----------------------s => pos                 , gt: free                
+2022-08-14 23:25:27,561 - info - 32 - INFO - val loss: 219.778900, val accuray: 0.000000
+2022-08-14 23:25:27,565 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:25:28,410 - info - 32 - INFO - (197/200/0/15) | ctc_loss:8.5915 | lr:0.00100000
+2022-08-14 23:25:33,847 - info - 32 - INFO - (197/200/10/15) | ctc_loss:8.2658 | lr:0.00100000
+2022-08-14 23:25:39,461 - info - 32 - INFO - recog example l---------------------tte => lte                 , gt: joint               
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example l--------------------n-ey => lney                , gt: yourself            
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example c------------------------ => c                   , gt: 154                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example 1-----------------------y => 1y                  , gt: 197                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example oaaa--------------------- => oa                  , gt: 727                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example c-----------------------y => cy                  , gt: 198                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example c-----------------------e => ce                  , gt: 20029               
+2022-08-14 23:25:39,462 - info - 32 - INFO - recog example por---------------------- => por                 , gt: free                
+2022-08-14 23:25:39,462 - info - 32 - INFO - val loss: 226.751999, val accuray: 0.010000
+2022-08-14 23:25:39,465 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:25:40,325 - info - 32 - INFO - (198/200/0/15) | ctc_loss:7.8059 | lr:0.00100000
+2022-08-14 23:25:45,826 - info - 32 - INFO - (198/200/10/15) | ctc_loss:8.4086 | lr:0.00100000
+2022-08-14 23:25:50,940 - info - 32 - INFO - recog example l--------------ii-----t-e => lite                , gt: joint               
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example h-----------------------e => he                  , gt: yourself            
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example 2-----------------------5 => 25                  , gt: 154                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example w-----------------------y => wy                  , gt: 197                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example ooaai-------------------s => oais                , gt: 727                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example ro---------------------ey => roey                , gt: 20029               
+2022-08-14 23:25:50,941 - info - 32 - INFO - recog example for---------------------s => fors                , gt: free                
+2022-08-14 23:25:50,941 - info - 32 - INFO - val loss: 226.660156, val accuray: 0.010000
+2022-08-14 23:25:50,945 - info - 32 - INFO - best_acc:0.01
+2022-08-14 23:25:51,770 - info - 32 - INFO - (199/200/0/15) | ctc_loss:9.6887 | lr:0.00100000
+2022-08-14 23:25:57,407 - info - 32 - INFO - (199/200/10/15) | ctc_loss:8.4055 | lr:0.00100000
+2022-08-14 23:26:02,731 - info - 32 - INFO - recog example s-----------------i-----e => sie                 , gt: joint               
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example h------------------------ => h                   , gt: yourself            
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example 1------------------------ => 1                   , gt: 154                 
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example l-----------------------s => ls                  , gt: 197                 
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example poaai-------------------- => poai                , gt: 727                 
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example ------------------------e => e                   , gt: 198                 
+2022-08-14 23:26:02,732 - info - 32 - INFO - recog example l-----------------------y => ly                  , gt: 198                 
+2022-08-14 23:26:02,733 - info - 32 - INFO - recog example l-----------------------5 => l5                  , gt: 198                 
+2022-08-14 23:26:02,733 - info - 32 - INFO - recog example ro----------------------s => ros                 , gt: 20029               
+2022-08-14 23:26:02,733 - info - 32 - INFO - recog example fo----------------------s => fos                 , gt: free                
+2022-08-14 23:26:02,733 - info - 32 - INFO - val loss: 222.863770, val accuray: 0.010000
+2022-08-14 23:26:02,736 - info - 32 - INFO - best_acc:0.01

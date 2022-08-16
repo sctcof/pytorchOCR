@@ -1,0 +1,253 @@
+2022-08-15 21:02:07,621 - info - 32 - INFO - RecModel(
+  (backbone): MobileNetV3(
+    (conv1): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(1, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (blocks): Sequential(
+      (0): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16)
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(16, 4, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(4, 16, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(16, 16, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(16, 72, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(72, 72, kernel_size=(3, 3), stride=(2, 1), padding=(1, 1), groups=72)
+          (bn): BatchNorm2d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(72, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (2): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (conv): Conv2d(24, 88, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (conv): Conv2d(88, 88, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=88)
+          (bn): BatchNorm2d(88, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(88, 24, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (3): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 96, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=96)
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(96, 24, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(24, 96, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(96, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (4): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (5): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 240, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(240, 240, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=240)
+          (bn): BatchNorm2d(240, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(240, 60, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(60, 240, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(240, 40, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (6): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(40, 120, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120)
+          (bn): BatchNorm2d(120, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(120, 30, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(30, 120, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(120, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (7): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 144, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(144, 144, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=144)
+          (bn): BatchNorm2d(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(144, 36, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(36, 144, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(144, 48, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (8): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(48, 288, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(288, 288, kernel_size=(5, 5), stride=(2, 1), padding=(2, 2), groups=288)
+          (bn): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(288, 72, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(72, 288, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(288, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (9): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (10): ResidualUnit(
+        (expand_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (bottleneck_conv): ConvBNLayer(
+          (hardswish): hswish()
+          (conv): Conv2d(576, 576, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=576)
+          (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (mid_se): SEModule(
+          (avg_pool): AdaptiveAvgPool2d(output_size=1)
+          (conv1): Conv2d(576, 144, kernel_size=(1, 1), stride=(1, 1))
+          (conv2): Conv2d(144, 576, kernel_size=(1, 1), stride=(1, 1))
+          (hardsigmoid): hsigmoid()
+        )
+        (linear_conv): ConvBNLayer(
+          (conv): Conv2d(576, 96, kernel_size=(1, 1), stride=(1, 1))
+          (bn): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (conv2): ConvBNLayer(
+      (hardswish): hswish()
+      (conv): Conv2d(96, 576, kernel_size=(1, 1), stride=(1, 1))
+      (bn): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (head): CRNN_Head(
+    (lstm_1): BLSTM(
+      (rnn): LSTM(576, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=48, bias=True)
+    )
+    (lstm_2): BLSTM(
+      (rnn): LSTM(48, 48, batch_first=True, bidirectional=True)
+      (embedding): Linear(in_features=96, out_features=88, bias=True)
+    )
+  )
+)
+2022-08-15 21:02:07,624 - info - 32 - INFO - Resuming from checkpoint.
+2022-08-15 21:02:08,498 - info - 32 - INFO - (191/201/0/15) | ctc_loss:8.2606 | lr:0.00100000
