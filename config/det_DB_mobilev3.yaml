@@ -1,0 +1,88 @@
+#主要是做文本检测，即是否包含文档，不做文本内容识别
+base:
+  gpu_id: '1'
+  algorithm: DB
+  pretrained: True
+  in_channels: [24, 40, 48, 96]
+  inner_channels: 96
+  k: 50
+  adaptive: True
+  crop_shape: [640,640] #训练时crop图片的大小
+  shrink_ratio: 0.4
+  n_epoch: 20
+  start_val: 700
+  show_step: 20
+  checkpoints: ./checkpoint
+  save_epoch: 2
+  restore: True #是否恢复训练
+  restore_file : ./checkpoint/DB_8.pth.tar
+
+backbone:
+  function: ptocr.model.backbone.det_mobilev3,mobilenet_v3_small
+
+head:
+  function: ptocr.model.head.det_DBHead,DB_Head
+#  function: ptocr.model.head.det_FPEM_FFM_Head,FPEM_FFM_Head
+#  function: ptocr.model.head.det_FPNHead,FPN_Head
+
+segout:
+  function: ptocr.model.segout.det_DB_segout,SegDetector
+
+architectures:
+  model_function: ptocr.model.architectures.det_model,DetModel
+  loss_function: ptocr.model.architectures.det_model,DetLoss
+
+loss:
+  function: ptocr.model.loss.db_loss,DBLoss
+  l1_scale: 10
+  bce_scale: 1
+
+#optimizer:
+#  function: ptocr.optimizer,AdamDecay
+#  base_lr: 0.002
+#  beta1: 0.9
+#  beta2: 0.999
+
+optimizer:
+  function: ptocr.optimizer,SGDDecay
+  base_lr: 0.002
+  momentum: 0.99
+  weight_decay: 0.00005
+
+optimizer_decay:
+  function: ptocr.optimizer,adjust_learning_rate_poly
+  factor: 0.9
+
+#optimizer_decay:
+#  function: ptocr.optimizer,adjust_learning_rate
+#  schedule: [1,2]
+#  gama: 0.1
+
+trainload:
+  function: ptocr.dataloader.DetLoad.DBProcess,DBProcessTrain
+  train_file: /Users/gwzhome/Desktop/workspace/pytorchOCR/data/traindata/train_list.txt
+  num_workers: 1
+  batch_size: 2
+
+testload:
+  function: ptocr.dataloader.DetLoad.DBProcess,DBProcessTest
+  test_file: /Users/gwzhome/Desktop/workspace/pytorchOCR/data/traindata/test_list.txt
+  test_gt_path: /Users/gwzhome/Desktop/workspace/pytorchOCR/data/traindata/test_gt
+  test_size: 736
+  stride: 32
+  num_workers: 1
+  batch_size: 4
+
+postprocess:
+  function: ptocr.postprocess.DBpostprocess,DBPostProcess
+  is_poly: False
+  thresh: 0.5
+  box_thresh: 0.6
+  max_candidates: 1000
+  unclip_ratio: 2
+  min_size: 3
+
+infer:
+  model_path: './checkpoint/DB_8.pth.tar'
+  path: '/Users/gwzhome/Desktop/workspace/pytorchOCR/data/test'
+  save_path: './result'
