@@ -1,0 +1,82 @@
+WarpCTC的安装和简单使用
+
+git clone https://github.com/SeanNaren/warp-ctc.git
+cd warp-ctc
+mkdir build
+cd build
+cmake ..
+make
+cd pytorch_binding
+python setup.py install
+
+针对 Error 1:
+cmake ..
+make
+
+[ 20%] Building CXX object CMakeFiles/warpctc.dir/src/ctc_entrypoint.cpp.o
+clang: error: unsupported option '-fopenmp'
+
+解决方案连接
+https://blog.csdn.net/xhzDeng/article/details/80511437
+
+--解决方案
+cd build/CMakeCache.txt
+
+更改配置为
+//compile warp-ctc with openmp.
+// ON -> OFF
+WITH_OMP:BOOL=OFF
+
+
+1、安装cmake
+https://blog.csdn.net/fanyun_01/article/details/102332894
+1.1、下载：curl -O https://cmake.org/files/v3.6/cmake-3.6.0-Linux-x86_64.tar.gz
+1.2、解压：tar -zxvf cmake-3.6.0-Linux-x86_64.tar.gz（不是源码包，解压后直接使用）。
+1.3、增加环境变量，使其成为全局变量：
+第一种方法:
+vim /etc/profile
+export PATH=$PATH:/lnmp/src/cmake-3.6.0-Linux-x86_64/bin
+
+
+echo $PATH
+cmake --version
+
+
+2、opencv的编译
+下载opencv:https://github.com/opencv/opencv.git
+
+解压之后
+cd opencv-x-xx
+mkdir build
+cd build
+cmake ../
+make
+make install
+
+3、处理opencv的配置问题
+http://t.zoukankan.com/wuyuan2011woaini-p-15748668.html
+cd /usr/local/lib
+sudo mkdir pkgconfig
+cd pkgconfig
+sudo touch opencv.pc
+
+vim opencv.pc
+再打开opencv.pc文件，文件内输入：（监测对应路径是否存在）
+------------------------填入如下内容
+
+prefix=/usr/local
+exec_prefix=${prefix}
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+
+Name: opencv
+Description: The opencv library
+Version:4.1.2
+Cflags: -I${includedir}/opencv4
+Libs: -L${libdir} -lopencv_stitching -lopencv_objdetect  -lopencv_calib3d -lopencv_features2d
+-lopencv_highgui -lopencv_videoio -lopencv_imgcodecs -lopencv_video -lopencv_photo -lopencv_ml
+-lopencv_imgproc -lopencv_flann  -lopencv_core
+
+--------
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
