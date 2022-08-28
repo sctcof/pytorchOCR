@@ -1,4 +1,5 @@
 CXXFLAGS = -I include  -std=c++11 -O3 $(shell python3-config --cflags)
+##如果第一句报错，则将 $(shell python3-config --cflags)换成python的环境路径 -I/Users/gwzhome/opt/anaconda3/envs/tf2/include/python3.6m
 LDFLAGS = $(shell python3-config --ldflags)
 
 DEPS = $(shell find include -xtype f)
